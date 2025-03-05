@@ -793,12 +793,12 @@ with tab4:
         
         st.success("Export complete! Click the button above to download all results.")
     else:
-        if upload_method == "Local Directory":
+        if not file_paths:
+            st.error("No files were uploaded. Please check your input.")
+            st.info("Please upload images or specify a directory path to begin processing.")
+        elif upload_method == "Local Directory":
             st.error(f"No valid images found in the specified directory: {input_directory}")
-    else:
-        st.error("No files were uploaded. Please check your input.")
-        st.info("Please upload images or specify a directory path to begin processing.")
-
+ 
 # Footer
 st.markdown("---")
 st.markdown("K-Means Image Segmentation Tool - oceancv.org")
